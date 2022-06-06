@@ -15,7 +15,11 @@ public class PharmaFuture {
      */
     public static void main(String[] args) {
         System.out.println("Hello world!!!");
-        System.out.println("New change!!!");
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SchermataAccedi().setVisible(true);
+            }
+        });
     }
     
 }
