@@ -219,7 +219,7 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
     }//GEN-LAST:event_RitardiProduzioneIconMouseClicked
 
     private void InserisciFarmacoIconBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InserisciFarmacoIconBtnMouseClicked
-        new RitardiProduzione().setVisible(true);
+        new SchermataInserisciFarmaco().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_InserisciFarmacoIconBtnMouseClicked
 
