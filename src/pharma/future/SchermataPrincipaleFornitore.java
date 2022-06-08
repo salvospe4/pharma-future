@@ -31,13 +31,14 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         InserisciFarmacoTextBtn = new javax.swing.JLabel();
         InserisciFarmacoIconBtn = new javax.swing.JLabel();
         RitardiProduzioneLabel = new javax.swing.JLabel();
         RitardiProduzioneIcon = new javax.swing.JLabel();
         DisconnettiBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,32 +50,21 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Pharma-Future Management System");
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Home Fornitore");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(438, 438, 438)
-                        .addComponent(jLabel3)))
-                .addContainerGap(735, Short.MAX_VALUE))
+                .addGap(240, 240, 240)
+                .addComponent(jLabel1)
+                .addContainerGap(746, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 128, 0));
@@ -100,6 +90,11 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
         });
 
         InserisciFarmacoIconBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\add_farmaco.png")); // NOI18N
+        InserisciFarmacoIconBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InserisciFarmacoIconBtnMouseClicked(evt);
+            }
+        });
 
         RitardiProduzioneLabel.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         RitardiProduzioneLabel.setForeground(new java.awt.Color(0, 128, 0));
@@ -111,6 +106,11 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
         });
 
         RitardiProduzioneIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\ritardo_produzione.png")); // NOI18N
+        RitardiProduzioneIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RitardiProduzioneIconMouseClicked(evt);
+            }
+        });
 
         DisconnettiBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         DisconnettiBtn.setText("Disconnetti");
@@ -125,6 +125,12 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\home.png")); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 128, 0));
+        jLabel4.setText("Home Fornitore");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,37 +138,45 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(503, 503, 503)
-                .addComponent(DisconnettiBtn))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(197, 197, 197)
+                .addGap(269, 269, 269)
                 .addComponent(InserisciFarmacoTextBtn)
-                .addGap(304, 304, 304)
+                .addGap(185, 185, 185)
                 .addComponent(RitardiProduzioneLabel))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(257, 257, 257)
+                .addGap(326, 326, 326)
                 .addComponent(InserisciFarmacoIconBtn)
-                .addGap(430, 430, 430)
+                .addGap(326, 326, 326)
                 .addComponent(RitardiProduzioneIcon))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(348, 348, 348)
+                .addComponent(jLabel2)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel4))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(459, 459, 459)
+                .addComponent(DisconnettiBtn))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(InserisciFarmacoTextBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(InserisciFarmacoIconBtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(RitardiProduzioneLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(RitardiProduzioneIcon)
-                        .addGap(6, 6, 6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel4))
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InserisciFarmacoTextBtn)
+                    .addComponent(RitardiProduzioneLabel))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InserisciFarmacoIconBtn)
+                    .addComponent(RitardiProduzioneIcon))
+                .addGap(74, 74, 74)
                 .addComponent(DisconnettiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGap(53, 53, 53)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -170,7 +184,7 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1071, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1065, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,6 +201,7 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
 
     private void DisconnettiBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisconnettiBtnMouseClicked
         new SchermataAccedi().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_DisconnettiBtnMouseClicked
 
     private void InserisciFarmacoTextBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InserisciFarmacoTextBtnMouseClicked
@@ -197,6 +212,16 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
         new RitardiProduzione().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_RitardiProduzioneLabelMouseClicked
+
+    private void RitardiProduzioneIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RitardiProduzioneIconMouseClicked
+        new RitardiProduzione().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_RitardiProduzioneIconMouseClicked
+
+    private void InserisciFarmacoIconBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InserisciFarmacoIconBtnMouseClicked
+        new RitardiProduzione().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_InserisciFarmacoIconBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -240,7 +265,8 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
     private javax.swing.JLabel RitardiProduzioneIcon;
     private javax.swing.JLabel RitardiProduzioneLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -195,11 +195,16 @@ public class RitardiProduzione extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(HomeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addComponent(ConfermaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,20 +220,13 @@ public class RitardiProduzione extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addGap(135, 135, 135)
                                     .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(56, 56, 56)
-                            .addComponent(HomeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(51, 51, 51)
-                            .addComponent(ConfermaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(74, 74, 74)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addGap(28, 28, 28)
-                    .addComponent(jLabel11)
-                    .addGap(219, 219, 219)
-                    .addComponent(jLabel5)
-                    .addGap(219, 219, 219)))
+                        .addGap(72, 72, 72)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(219, 219, 219)
+                        .addComponent(jLabel5)))
+                .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,6 +246,7 @@ public class RitardiProduzione extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(IDText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
@@ -263,7 +262,7 @@ public class RitardiProduzione extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(QtyText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
-                        .addGap(64, 64, 64)
+                        .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ConfermaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(HomeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -287,21 +286,26 @@ public class RitardiProduzione extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfermaBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfermaBtnMouseClicked
-        int id_farmaco = Integer.valueOf(IDText.getText());
-        //String nome = NomeText.getText();
-        int frequenza = Integer.valueOf(FrequenzaText.getText());
-        int qty = Integer.valueOf(QtyText.getText());
-        
-        ProduzioneControl pc = new ProduzioneControl();
-        pc.modificaProduzione(id_farmaco, frequenza, qty);
-        
-        JOptionPane.showMessageDialog(this, "Produzione aggiornata");
-        
-        IDText.setText("");
-        NomeText.setText("");
-        FrequenzaText.setText("");
-        QtyText.setText("");
-        
+        if(IDText.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Seleziona un farmaco");
+        }else if(FrequenzaText.getText().equals("") | QtyText.getText().equals("") ){
+            JOptionPane.showMessageDialog(this, "Inserire i parametri di produzione");
+        }else{
+            int id_farmaco = Integer.valueOf(IDText.getText());
+            //String nome = NomeText.getText();
+            int frequenza = Integer.valueOf(FrequenzaText.getText());
+            int qty = Integer.valueOf(QtyText.getText());
+
+            ProduzioneControl pc = new ProduzioneControl();
+            pc.modificaProduzione(id_farmaco, frequenza, qty);
+
+            JOptionPane.showMessageDialog(this, "Produzione aggiornata");
+
+            IDText.setText("");
+            NomeText.setText("");
+            FrequenzaText.setText("");
+            QtyText.setText("");
+        }
     }//GEN-LAST:event_ConfermaBtnMouseClicked
 
     private void HomeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeBtnMouseClicked

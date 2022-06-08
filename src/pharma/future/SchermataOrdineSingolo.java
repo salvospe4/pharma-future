@@ -289,46 +289,54 @@ public class SchermataOrdineSingolo extends javax.swing.JFrame {
     }//GEN-LAST:event_HomeBtnMouseClicked
 
     private void ConfermaOrdineBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfermaOrdineBtnMouseClicked
-        int id_farmaco = Integer.valueOf(IDText.getText());
-        String nome = NomeFarmacoText.getText();
-        String principioAttivo = PrincipioAttivoText.getText();
-        int qty = Integer.valueOf(QtyText.getText());
-        OrdineControl oc = new OrdineControl();
-        int qtyDB = oc.getQuantità(id_farmaco);
-        if(qtyDB < qty){
-            // ci sarebbe la verifica della prossima produzione
-            int input = JOptionPane.showConfirmDialog(this, "Le scorte in azienda sono insufficienti per la quantità inserita. Al momento può ordinare massimo " + qtyDB + " pezzi. Proseguire con la quantità massima?");
-            System.out.println(input);
-            if(input == 0){ //SI
-                QtyText.setText("" + qtyDB);
-            }else{ // NO oppure Annulla
-                QtyText.setText("");
-            }
+        if(QtyText.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Inserisci una quantità");
         }else{
-            //controllo scadenza
-            //JOptionPane.showMessageDialog(this, "Le quantità sono sufficienti");
-            boolean esito = oc.controlloScadenza(id_farmaco, qty);
-            if(esito){
-                oc.effettuaOrdine(id_farmaco, qty, farmacia);
-                oc.inserisciConsegna(farmacia);
-                JOptionPane.showMessageDialog(this, "Ordine effettuato");
-                
-            } else{
-                int input = JOptionPane.showConfirmDialog(this, "Ci sono alcuni farmaci con una scadenza inferiore a 2 mesi. Vuoi procedere lo stesso?");
-                if(input == 0){
+            int id_farmaco = Integer.valueOf(IDText.getText());
+            String nome = NomeFarmacoText.getText();
+            String principioAttivo = PrincipioAttivoText.getText();
+            int qty = Integer.valueOf(QtyText.getText());
+            OrdineControl oc = new OrdineControl();
+            int qtyDB = oc.getQuantità(id_farmaco);
+            if(qtyDB < qty){
+                // ci sarebbe la verifica della prossima produzione
+                int input = JOptionPane.showConfirmDialog(this, "Le scorte in azienda sono insufficienti per la quantità inserita. Al momento può ordinare massimo " + qtyDB + " pezzi. Proseguire con la quantità massima?");
+                System.out.println(input);
+                if(input == 0){ //SI
+                    QtyText.setText("" + qtyDB);
+                }else{ // NO oppure Annulla
+                    QtyText.setText("");
+                }
+            }else{
+                //controllo scadenza
+                //JOptionPane.showMessageDialog(this, "Le quantità sono sufficienti");
+                boolean esito = oc.controlloScadenza(id_farmaco, qty);
+                if(esito){
                     oc.effettuaOrdine(id_farmaco, qty, farmacia);
                     oc.inserisciConsegna(farmacia);
                     JOptionPane.showMessageDialog(this, "Ordine effettuato");
-                    
+                    IDText.setText("");
+                    NomeFarmacoText.setText("");
+                    PrincipioAttivoText.setText("");
+                    QtyText.setText("");
+
+                } else{
+                    int input = JOptionPane.showConfirmDialog(this, "Ci sono alcuni farmaci con una scadenza inferiore a 2 mesi. Vuoi procedere lo stesso?");
+                    if(input == 0){
+                        oc.effettuaOrdine(id_farmaco, qty, farmacia);
+                        oc.inserisciConsegna(farmacia);
+                        JOptionPane.showMessageDialog(this, "Ordine effettuato");
+                        IDText.setText("");
+                        NomeFarmacoText.setText("");
+                        PrincipioAttivoText.setText("");
+                        QtyText.setText("");
+                    }
                 }
             }
+            
+
+            this.riempiTabella();
         }
-        IDText.setText("");
-        NomeFarmacoText.setText("");
-        PrincipioAttivoText.setText("");
-        QtyText.setText("");
-        
-        this.riempiTabella();
     }//GEN-LAST:event_ConfermaOrdineBtnMouseClicked
 
     private void TabellaFarmaciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabellaFarmaciMouseClicked

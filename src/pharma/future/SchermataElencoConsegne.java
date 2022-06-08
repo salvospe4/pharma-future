@@ -306,24 +306,30 @@ public class SchermataElencoConsegne extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfermaBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfermaBtnMouseClicked
-        int id_consegna = Integer.valueOf(IDConsegnaText.getText());
-        int id_ordine = Integer.valueOf(IDOrdineText.getText());
-        String nome_farmacia = NomeFarmaciaText.getText();
-        String codice = CodiceFirmaText.getText();
-        
-        ConsegnaControl cc = new ConsegnaControl();
-        if(cc.controlloFirma(codice, nome_farmacia)){
-            cc.effettuaConsegna(id_ordine);
-            JOptionPane.showMessageDialog(this, "Consegna effettuata");
-            IDConsegnaText.setText("");
-            IDOrdineText.setText("");
-            NomeFarmaciaText.setText("");
-            IndirizzoText.setText("");
-            CodiceFirmaText.setText("");
-            this.riempiTabella();
+        if(IDConsegnaText.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Seleziona una consegna");
+        }else if(CodiceFirmaText.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Inserisci codice firma");
         }else{
-            JOptionPane.showMessageDialog(this, "Codice firma errato");
-            CodiceFirmaText.setText("");
+            int id_consegna = Integer.valueOf(IDConsegnaText.getText());
+            int id_ordine = Integer.valueOf(IDOrdineText.getText());
+            String nome_farmacia = NomeFarmaciaText.getText();
+            String codice = CodiceFirmaText.getText();
+
+            ConsegnaControl cc = new ConsegnaControl();
+            if(cc.controlloFirma(codice, nome_farmacia)){
+                cc.effettuaConsegna(id_ordine);
+                JOptionPane.showMessageDialog(this, "Consegna effettuata");
+                IDConsegnaText.setText("");
+                IDOrdineText.setText("");
+                NomeFarmaciaText.setText("");
+                IndirizzoText.setText("");
+                CodiceFirmaText.setText("");
+                this.riempiTabella();
+            }else{
+                JOptionPane.showMessageDialog(this, "Codice firma errato");
+                CodiceFirmaText.setText("");
+            }
         }
     }//GEN-LAST:event_ConfermaBtnMouseClicked
 

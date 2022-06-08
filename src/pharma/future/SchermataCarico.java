@@ -356,6 +356,7 @@ public class SchermataCarico extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "E' stata comunicata la mancanza all'azienda.");
                     this.riempiTabellaOrdini();
                     this.riempiTabellaLotti(Integer.valueOf(IDOrdineText.getText()));
+                    IDOrdineText.setText("");
                     IDLottoText.setText("");
                     ScadenzaText.setText("");
                     QtyText.setText("");
@@ -365,7 +366,9 @@ public class SchermataCarico extends javax.swing.JFrame {
                         int id_lotto_ordinato = Integer.valueOf(IDLottoText.getText());
                         CaricoControl cc = new CaricoControl();
                         cc.segnalaMancanze(id_lotto_ordinato, farmacia);
+                        this.riempiTabellaOrdini();
                         this.riempiTabellaLotti(Integer.valueOf(IDOrdineText.getText()));
+                        IDOrdineText.setText("");
                         IDLottoText.setText("");
                         ScadenzaText.setText("");
                         QtyText.setText("");

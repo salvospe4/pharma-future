@@ -290,26 +290,30 @@ public class SchermataVendita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VendiBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendiBtnMouseClicked
-        int id_farmaco = Integer.valueOf(IDText.getText());
-        int qty = Integer.valueOf(QtyText.getText());
-        VenditaControl vc = new VenditaControl(this.farmacia);
-        int qtyDB = vc.getQuantita(id_farmaco);
-        if(qtyDB < qty){
-            
-            int input = JOptionPane.showConfirmDialog(this, "Le scorte in magazzino sono insufficienti per la quantità inserita. Al momento può vendere massimo " + qtyDB + " pezzi. Proseguire con la quantità massima?");
-            System.out.println(input);
-            if(input == 0){ //SI
-                QtyText.setText("" + qtyDB);
-            }else{ // NO oppure Annulla
+        if( IDText.getText().equals("") ){
+            JOptionPane.showMessageDialog(this, "Seleziona un farmaco");
+        }else if(QtyText.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Inserisci una quantità");
+        }else{
+            int id_farmaco = Integer.valueOf(IDText.getText());
+            int qty = Integer.valueOf(QtyText.getText());
+            VenditaControl vc = new VenditaControl(this.farmacia);
+            int qtyDB = vc.getQuantita(id_farmaco);
+            if(qtyDB < qty){
+
+                int input = JOptionPane.showConfirmDialog(this, "Le scorte in magazzino sono insufficienti per la quantità inserita. Al momento può vendere massimo " + qtyDB + " pezzi. Proseguire con la quantità massima?");
+                System.out.println(input);
+                if(input == 0){ //SI
+                    QtyText.setText("" + qtyDB);
+                }else{ // NO oppure Annulla
+                    QtyText.setText("");
+                }
+            }else{
+                vc.vendi(id_farmaco, qty);
+                JOptionPane.showMessageDialog(this, "Farmaco venduto");
                 QtyText.setText("");
             }
-        }else{
-            vc.vendi(id_farmaco, qty);
-            JOptionPane.showMessageDialog(this, "Farmaco venduto");
-            QtyText.setText("");
-        
         }
-        
         
     }//GEN-LAST:event_VendiBtnMouseClicked
 
@@ -336,7 +340,7 @@ public class SchermataVendita extends javax.swing.JFrame {
     public void riempiTabella(){
         try {
             System.out.println("Sono dentro riempi tabella");
-            String query = "select farmaco.id_farmaco, farmaco.nome, farmaco.principio_attivo, farmaco.banco from magazzino, farmaco where ref_farmaco=id_farmaco";
+            String query = "select id_farmaco, nome, principio_attivo, banco from farmaco where id_farmaco in (select ref_farmaco from magazzino)";
             Con = DriverManager.getConnection("jdbc:mysql://localhost:3308/"+this.farmacia.nome_db, "salvo", "root");
             St = Con.createStatement();
             Rs = St.executeQuery(query);
@@ -348,8 +352,6 @@ public class SchermataVendita extends javax.swing.JFrame {
                     TabellaFarmaci.setValueAt("non da banco", i, 3);
                 }
             }
-            
-            
         }catch(SQLException e){
             e.printStackTrace();
         }

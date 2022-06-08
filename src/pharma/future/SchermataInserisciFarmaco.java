@@ -310,15 +310,18 @@ public class SchermataInserisciFarmaco extends javax.swing.JFrame {
     }//GEN-LAST:event_HomeBtnActionPerformed
 
     private void InserisciBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InserisciBtnMouseClicked
-        String nome = NomeText.getText();
-        String principioAttivo = PrincipioAttivoText.getText();
-        int banco = BancoCheck.isSelected() ? 1 : 0;
-        int frequenza = Integer.valueOf(FrequenzaText.getText());
-        int quantita = Integer.valueOf(QtyText.getText());
-        int giorniScadenza = Integer.valueOf(GiorniScadenzaText.getText());
-        new ProduzioneControl().inserisciFarmaco(nome, principioAttivo, banco, giorniScadenza, frequenza, quantita);
-        JOptionPane.showMessageDialog(this, "Farmaco inserito correttamente");
-        this.dispose();
+        if(NomeText.getText().equals("") | PrincipioAttivoText.getText().equals("") | FrequenzaText.getText().equals("") | QtyText.getText().equals("") | GiorniScadenzaText.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Sono presenti campi non compilati");
+        }else{
+            String nome = NomeText.getText();
+            String principioAttivo = PrincipioAttivoText.getText();
+            int banco = BancoCheck.isSelected() ? 1 : 0;
+            int frequenza = Integer.valueOf(FrequenzaText.getText());
+            int quantita = Integer.valueOf(QtyText.getText());
+            int giorniScadenza = Integer.valueOf(GiorniScadenzaText.getText());
+            new ProduzioneControl().inserisciFarmaco(nome, principioAttivo, banco, giorniScadenza, frequenza, quantita);
+            JOptionPane.showMessageDialog(this, "Farmaco inserito correttamente");
+        }
     }//GEN-LAST:event_InserisciBtnMouseClicked
 
     private void PrincipioAttivoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrincipioAttivoTextActionPerformed
