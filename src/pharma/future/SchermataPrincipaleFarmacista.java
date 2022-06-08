@@ -4,6 +4,9 @@
  */
 package pharma.future;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 /**
  *
  * @author salvatore spezia
@@ -20,19 +23,39 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
     public SchermataPrincipaleFarmacista(String username) {
         initComponents();
         this.username_farmacista = username;
-        System.out.println("costruttore");
+        //System.out.println("costruttore");
         this.creaSessione(username);
-        
+        new ProduzioneControl().produzioneAutomatica();
+        new OrdineControl().ordiniPeriodici();
+        new Thread(){
+            public void run(){
+                while(true){
+                    Calendar cal = new GregorianCalendar();
+                    int hour = cal.get(Calendar.HOUR_OF_DAY);
+                    int minute = cal.get(Calendar.MINUTE);
+                    //int second = cal.get(Calendar.SECOND);
+                    if(hour == 20 & minute==2){
+                        new SchermataCaricoOre20(farmacia).setVisible(true);
+                        break;
+                    }
+                    try{
+                        Thread.sleep(50000); // dorme 50 secondi
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
     }
     
     private void creaSessione(String username){
-        System.out.println("creaSessione");
+        //System.out.println("creaSessione");
         AutenticazioneControl ac = new AutenticazioneControl();
         this.farmacia = ac.creaSessioneFarmacia(username);
-        System.out.println(farmacia.id);
-        System.out.println(farmacia.nome); //errore
-        System.out.println(farmacia.indirizzo);
-        System.out.println(farmacia.codice_consegna);
+        //System.out.println(farmacia.id);
+        //System.out.println(farmacia.nome); //errore
+        //System.out.println(farmacia.indirizzo);
+        //System.out.println(farmacia.codice_consegna);
     }
     
     public void printFarmacia(){
@@ -51,12 +74,12 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
         DisconnettiBtn = new javax.swing.JButton();
         ordineSingoloBtn = new javax.swing.JLabel();
         ordineSingoloBtnText = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        VenditaLabel = new javax.swing.JLabel();
+        VenditaIcon = new javax.swing.JLabel();
         ModificaOrdineLabel = new javax.swing.JLabel();
         ModificaOrdineIcon = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        CaricoLabel = new javax.swing.JLabel();
+        CaricoIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,11 +161,21 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 128, 0));
-        jLabel7.setText("Vendita");
+        VenditaLabel.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        VenditaLabel.setForeground(new java.awt.Color(0, 128, 0));
+        VenditaLabel.setText("Vendita");
+        VenditaLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VenditaLabelMouseClicked(evt);
+            }
+        });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\vendere.png")); // NOI18N
+        VenditaIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\vendere.png")); // NOI18N
+        VenditaIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VenditaIconMouseClicked(evt);
+            }
+        });
 
         ModificaOrdineLabel.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         ModificaOrdineLabel.setForeground(new java.awt.Color(0, 128, 0));
@@ -160,11 +193,21 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 128, 0));
-        jLabel11.setText("Carico");
+        CaricoLabel.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        CaricoLabel.setForeground(new java.awt.Color(0, 128, 0));
+        CaricoLabel.setText("Carico");
+        CaricoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CaricoLabelMouseClicked(evt);
+            }
+        });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\carico.png")); // NOI18N
+        CaricoIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\carico.png")); // NOI18N
+        CaricoIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CaricoIconMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -183,12 +226,12 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(ordineSingoloBtnText)
                                 .addGap(107, 107, 107)
-                                .addComponent(jLabel7))
+                                .addComponent(VenditaLabel))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(43, 43, 43)
                                 .addComponent(ordineSingoloBtn)
                                 .addGap(169, 169, 169)
-                                .addComponent(jLabel8)))
+                                .addComponent(VenditaIcon)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(172, 172, 172)
@@ -198,8 +241,8 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
                                 .addComponent(ModificaOrdineLabel)))
                         .addGap(118, 118, 118)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)))
+                            .addComponent(CaricoLabel)
+                            .addComponent(CaricoIcon)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(467, 467, 467)
                         .addComponent(DisconnettiBtn)))
@@ -215,18 +258,18 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(ordineSingoloBtnText)
-                                .addComponent(jLabel7))
+                                .addComponent(VenditaLabel))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(18, 18, 18)
                                     .addComponent(ordineSingoloBtn))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(18, 18, 18)
-                                    .addComponent(jLabel8))))
+                                    .addComponent(VenditaIcon))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel11)
+                            .addComponent(CaricoLabel)
                             .addGap(18, 18, 18)
-                            .addComponent(jLabel12)))
+                            .addComponent(CaricoIcon)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ModificaOrdineLabel)
                         .addGap(18, 18, 18)
@@ -279,6 +322,22 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
         new SchermataModificaOrdine(farmacia).setVisible(true);
     }//GEN-LAST:event_ModificaOrdineIconMouseClicked
 
+    private void VenditaIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VenditaIconMouseClicked
+        new SchermataVendita(farmacia).setVisible(true);
+    }//GEN-LAST:event_VenditaIconMouseClicked
+
+    private void VenditaLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VenditaLabelMouseClicked
+        new SchermataVendita(farmacia).setVisible(true);
+    }//GEN-LAST:event_VenditaLabelMouseClicked
+
+    private void CaricoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CaricoLabelMouseClicked
+        new SchermataCarico(farmacia).setVisible(true);
+    }//GEN-LAST:event_CaricoLabelMouseClicked
+
+    private void CaricoIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CaricoIconMouseClicked
+        new SchermataCarico(farmacia).setVisible(true);
+    }//GEN-LAST:event_CaricoIconMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -315,15 +374,15 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CaricoIcon;
+    private javax.swing.JLabel CaricoLabel;
     private javax.swing.JButton DisconnettiBtn;
     private javax.swing.JLabel ModificaOrdineIcon;
     private javax.swing.JLabel ModificaOrdineLabel;
+    private javax.swing.JLabel VenditaIcon;
+    private javax.swing.JLabel VenditaLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

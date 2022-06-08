@@ -14,7 +14,6 @@ public class PharmaFuture {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello world!!!");
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SchermataAccedi().setVisible(true);

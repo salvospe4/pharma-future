@@ -327,7 +327,7 @@ public class SchermataModificaOrdine extends javax.swing.JFrame {
     
     public void riempiTabella(){
         try {
-            String query = "select ordine.id_ordine, farmaco.nome, ordine.quantita, farmaco.id_farmaco from ordine, farmaco where ordine.ref_farmaco=farmaco.id_farmaco and ref_farmacia=" + farmacia.id + ";";
+            String query = "select ordine.id_ordine, farmaco.nome, ordine.quantita, farmaco.id_farmaco from ordine, farmaco where ordine.ref_farmaco=farmaco.id_farmaco and ref_farmacia=" + farmacia.id + " and ordine.periodico=0;";
             Con = DriverManager.getConnection("jdbc:mysql://localhost:3308/pharma_future", "salvo", "root");
             St = Con.createStatement();
             Rs = St.executeQuery(query);

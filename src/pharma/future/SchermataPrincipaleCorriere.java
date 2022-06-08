@@ -27,9 +27,9 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        DisconnettiBtn = new javax.swing.JButton();
+        ElencoConsegneLabel = new javax.swing.JLabel();
+        ElencoConsegneIcon = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -39,19 +39,34 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setText("Disconnetti");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        DisconnettiBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        DisconnettiBtn.setText("Disconnetti");
+        DisconnettiBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DisconnettiBtnMouseClicked(evt);
+            }
+        });
+        DisconnettiBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                DisconnettiBtnActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 128, 0));
-        jLabel2.setText("Elenco consegne");
+        ElencoConsegneLabel.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        ElencoConsegneLabel.setForeground(new java.awt.Color(0, 128, 0));
+        ElencoConsegneLabel.setText("Elenco consegne");
+        ElencoConsegneLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ElencoConsegneLabelMouseClicked(evt);
+            }
+        });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\elenco_consegne.png")); // NOI18N
+        ElencoConsegneIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\elenco_consegne.png")); // NOI18N
+        ElencoConsegneIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ElencoConsegneIconMouseClicked(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(0, 128, 0));
 
@@ -70,12 +85,12 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(341, 341, 341)
-                        .addComponent(jLabel1))
+                        .addGap(448, 448, 448)
+                        .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(489, 489, 489)
-                        .addComponent(jLabel3)))
-                .addContainerGap(645, Short.MAX_VALUE))
+                        .addGap(256, 256, 256)
+                        .addComponent(jLabel1)))
+                .addContainerGap(730, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,27 +127,27 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(564, 564, 564)
-                        .addComponent(jButton1))
+                        .addGap(535, 535, 535)
+                        .addComponent(ElencoConsegneIcon))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(605, 605, 605)
-                        .addComponent(jLabel4))
+                        .addGap(481, 481, 481)
+                        .addComponent(ElencoConsegneLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(550, 550, 550)
-                        .addComponent(jLabel2)))
+                        .addGap(492, 492, 492)
+                        .addComponent(DisconnettiBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159)
-                .addComponent(jLabel2)
+                .addGap(114, 114, 114)
+                .addComponent(ElencoConsegneLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(36, 36, 36)
+                .addComponent(ElencoConsegneIcon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addComponent(DisconnettiBtn)
+                .addGap(90, 90, 90)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -140,7 +155,7 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1196, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1132, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,9 +166,24 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void DisconnettiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisconnettiBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_DisconnettiBtnActionPerformed
+
+    private void DisconnettiBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisconnettiBtnMouseClicked
+        new SchermataAccedi().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_DisconnettiBtnMouseClicked
+
+    private void ElencoConsegneLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElencoConsegneLabelMouseClicked
+        new SchermataElencoConsegne().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ElencoConsegneLabelMouseClicked
+
+    private void ElencoConsegneIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElencoConsegneIconMouseClicked
+        new SchermataElencoConsegne().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ElencoConsegneIconMouseClicked
 
     /**
      * @param args the command line arguments
@@ -191,11 +221,11 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton DisconnettiBtn;
+    private javax.swing.JLabel ElencoConsegneIcon;
+    private javax.swing.JLabel ElencoConsegneLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

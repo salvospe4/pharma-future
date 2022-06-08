@@ -85,4 +85,10 @@ public class OrdineControl {
     }
     
     
+    public void ordiniPeriodici(){
+        DBMSBoundaryAzienda db = new DBMSBoundaryAzienda();
+        db.ordiniPeriodici();
+    }
+    
+    
 }

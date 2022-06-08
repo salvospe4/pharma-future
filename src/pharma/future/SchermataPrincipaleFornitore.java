@@ -15,6 +15,8 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
      */
     public SchermataPrincipaleFornitore() {
         initComponents();
+        new ProduzioneControl().produzioneAutomatica();
+        new OrdineControl().ordiniPeriodici();
     }
 
     /**
@@ -33,8 +35,8 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         InserisciFarmacoTextBtn = new javax.swing.JLabel();
         InserisciFarmacoIconBtn = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        RitardiProduzioneLabel = new javax.swing.JLabel();
+        RitardiProduzioneIcon = new javax.swing.JLabel();
         DisconnettiBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,11 +101,16 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
 
         InserisciFarmacoIconBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\add_farmaco.png")); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 128, 0));
-        jLabel5.setText("Ritardi di produzione");
+        RitardiProduzioneLabel.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        RitardiProduzioneLabel.setForeground(new java.awt.Color(0, 128, 0));
+        RitardiProduzioneLabel.setText("Ritardi di produzione");
+        RitardiProduzioneLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RitardiProduzioneLabelMouseClicked(evt);
+            }
+        });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\ritardo_produzione.png")); // NOI18N
+        RitardiProduzioneIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\ritardo_produzione.png")); // NOI18N
 
         DisconnettiBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         DisconnettiBtn.setText("Disconnetti");
@@ -130,13 +137,13 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(197, 197, 197)
                 .addComponent(InserisciFarmacoTextBtn)
-                .addGap(306, 306, 306)
-                .addComponent(jLabel5))
+                .addGap(304, 304, 304)
+                .addComponent(RitardiProduzioneLabel))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(257, 257, 257)
                 .addComponent(InserisciFarmacoIconBtn)
                 .addGap(430, 430, 430)
-                .addComponent(jLabel6))
+                .addComponent(RitardiProduzioneIcon))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,9 +156,9 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(InserisciFarmacoIconBtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(RitardiProduzioneLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
+                        .addComponent(RitardiProduzioneIcon)
                         .addGap(6, 6, 6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(DisconnettiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,6 +192,11 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
     private void InserisciFarmacoTextBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InserisciFarmacoTextBtnMouseClicked
         new SchermataInserisciFarmaco().setVisible(true);
     }//GEN-LAST:event_InserisciFarmacoTextBtnMouseClicked
+
+    private void RitardiProduzioneLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RitardiProduzioneLabelMouseClicked
+        new RitardiProduzione().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_RitardiProduzioneLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -225,10 +237,10 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
     private javax.swing.JButton DisconnettiBtn;
     private javax.swing.JLabel InserisciFarmacoIconBtn;
     private javax.swing.JLabel InserisciFarmacoTextBtn;
+    private javax.swing.JLabel RitardiProduzioneIcon;
+    private javax.swing.JLabel RitardiProduzioneLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

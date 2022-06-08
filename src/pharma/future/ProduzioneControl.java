@@ -4,6 +4,9 @@
  */
 package pharma.future;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author salvatore spezia
@@ -21,8 +24,23 @@ public class ProduzioneControl {
     }
     
     public void setProduzione(int idFarmaco, int frequenza, int qty){
+        LocalDateTime now = LocalDateTime.now();  
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+        String oggi = now.format(format); 
+        
         DBMSBoundaryAzienda db = new DBMSBoundaryAzienda();
-        db.setProduzione(idFarmaco, frequenza, qty);
+        db.setProduzione(idFarmaco, frequenza, qty, oggi);
+        this.produzioneAutomatica();
+    }
+    
+    public void modificaProduzione(int id_farmaco, int frequenza, int qty){
+        DBMSBoundaryAzienda db = new DBMSBoundaryAzienda();
+        db.aggiornaProduzione(id_farmaco, frequenza, qty);
+    }
+    
+    public void produzioneAutomatica(){
+        DBMSBoundaryAzienda db = new DBMSBoundaryAzienda();
+        db.produzioneAutomatica();
     }
     
 }

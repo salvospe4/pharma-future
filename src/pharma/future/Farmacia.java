@@ -14,12 +14,14 @@ public class Farmacia {
     public String nome;
     public String indirizzo;
     public String codice_consegna;
+    public String nome_db;
     
-    public Farmacia(int id, String nome, String indirizzo, String codice_consegna){
+    public Farmacia(int id, String nome, String indirizzo, String codice_consegna, String nome_db){
         this.id = id;
         this.nome = nome;
         this.indirizzo = indirizzo;
         this.codice_consegna = codice_consegna;
+        this.nome_db = nome_db;
     }
     
 }
