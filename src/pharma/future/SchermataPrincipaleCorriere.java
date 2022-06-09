@@ -62,7 +62,7 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
             }
         });
 
-        ElencoConsegneIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\elenco_consegne.png")); // NOI18N
+        ElencoConsegneIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/elenco_consegne.png"))); // NOI18N
         ElencoConsegneIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ElencoConsegneIconMouseClicked(evt);
@@ -109,7 +109,7 @@ public class SchermataPrincipaleCorriere extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 128, 0));
         jLabel4.setText("Home Corriere");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\home.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/home.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

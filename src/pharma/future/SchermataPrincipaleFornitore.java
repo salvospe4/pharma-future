@@ -89,7 +89,7 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
             }
         });
 
-        InserisciFarmacoIconBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\add_farmaco.png")); // NOI18N
+        InserisciFarmacoIconBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/add_farmaco.png"))); // NOI18N
         InserisciFarmacoIconBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 InserisciFarmacoIconBtnMouseClicked(evt);
@@ -105,7 +105,7 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
             }
         });
 
-        RitardiProduzioneIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\ritardo_produzione.png")); // NOI18N
+        RitardiProduzioneIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/ritardo_produzione.png"))); // NOI18N
         RitardiProduzioneIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RitardiProduzioneIconMouseClicked(evt);
@@ -125,7 +125,7 @@ public class SchermataPrincipaleFornitore extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\home.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/home.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 128, 0));

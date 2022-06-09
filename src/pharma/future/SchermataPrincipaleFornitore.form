@@ -178,7 +178,7 @@
         <Component class="javax.swing.JLabel" name="InserisciFarmacoIconBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\salvatore spezia\Documents\NetBeansProjects\Pharma-Future\media\add_farmaco.png"/>
+              <Image iconType="3" name="/pharma/future/media/add_farmaco.png"/>
             </Property>
           </Properties>
           <Events>
@@ -202,7 +202,7 @@
         <Component class="javax.swing.JLabel" name="RitardiProduzioneIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\salvatore spezia\Documents\NetBeansProjects\Pharma-Future\media\ritardo_produzione.png"/>
+              <Image iconType="3" name="/pharma/future/media/ritardo_produzione.png"/>
             </Property>
           </Properties>
           <Events>
@@ -224,7 +224,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\salvatore spezia\Documents\NetBeansProjects\Pharma-Future\media\home.png"/>
+              <Image iconType="3" name="/pharma/future/media/home.png"/>
             </Property>
           </Properties>
         </Component>

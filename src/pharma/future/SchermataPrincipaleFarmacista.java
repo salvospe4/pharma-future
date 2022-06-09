@@ -135,7 +135,7 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
             }
         });
 
-        ordineSingoloBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\ordine_singolo.png")); // NOI18N
+        ordineSingoloBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/ordine_singolo.png"))); // NOI18N
         ordineSingoloBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ordineSingoloBtnMouseClicked(evt);
@@ -160,7 +160,7 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
             }
         });
 
-        VenditaIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\vendere.png")); // NOI18N
+        VenditaIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/vendere.png"))); // NOI18N
         VenditaIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 VenditaIconMouseClicked(evt);
@@ -176,7 +176,7 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
             }
         });
 
-        ModificaOrdineIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\modifica_ordine.png")); // NOI18N
+        ModificaOrdineIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/rimuovi.png"))); // NOI18N
         ModificaOrdineIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ModificaOrdineIconMouseClicked(evt);
@@ -192,7 +192,7 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
             }
         });
 
-        CaricoIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\carico.png")); // NOI18N
+        CaricoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/carico.png"))); // NOI18N
         CaricoIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CaricoIconMouseClicked(evt);
@@ -203,7 +203,7 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 128, 0));
         jLabel3.setText("Home Farmacista");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\salvatore spezia\\Documents\\NetBeansProjects\\Pharma-Future\\media\\home.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharma/future/media/home.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
