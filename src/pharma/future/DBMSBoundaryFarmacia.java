@@ -182,4 +182,25 @@ public class DBMSBoundaryFarmacia {
         return esito;
     }
     
+    public int scorteFarmaco(String nome_farmaco){
+        
+        String query = "select magazzino.quantita from magazzino, farmaco where magazzino.ref_farmaco=farmaco.id_farmaco and farmaco.nome='" + nome_farmaco + "';";
+        int scorte = 0;
+        
+        try{
+            Con = DriverManager.getConnection("jdbc:mysql://localhost:3308/" + farmacia.nome_db, "salvo", "root");
+            St = Con.createStatement();
+            Rs = St.executeQuery(query);
+            while(Rs.next()){
+                scorte += Rs.getInt("quantita");
+            }
+            Con.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        
+        return scorte;
+    }
+    
 }

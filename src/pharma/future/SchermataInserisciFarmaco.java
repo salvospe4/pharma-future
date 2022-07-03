@@ -306,6 +306,7 @@ public class SchermataInserisciFarmaco extends javax.swing.JFrame {
     }//GEN-LAST:event_InserisciBtnActionPerformed
 
     private void HomeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBtnActionPerformed
+        new SchermataPrincipaleFornitore().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_HomeBtnActionPerformed
 

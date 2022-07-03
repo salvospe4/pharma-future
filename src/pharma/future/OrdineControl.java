@@ -4,8 +4,13 @@
  */
 package pharma.future;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -60,12 +65,16 @@ public class OrdineControl {
     }
     
     public void inserisciConsegna(Farmacia farmacia){
-        LocalDateTime now = LocalDateTime.now();  
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
-        String formatDateTime = now.format(format);  
-        String[] s = formatDateTime.split("-");
-        int giorno = Integer.valueOf(s[2]) + 5;
-        String dataConsegna = s[0] + "-" + s[1] + "-" + giorno;
+        // La data di consegna viene calcolato dopo 2 giorni dalla data di ordine        
+        String DATE_FORMAT = "yyyy-MM-dd";
+        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.ITALIAN);
+        Date date = new Date();
+        LocalDateTime localDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        
+        Date currentDatePlusOneDay = Date.from(localDateTime.plusDays(2).atZone(ZoneId.systemDefault()).toInstant());
+        String dataConsegna = dateFormat.format(currentDatePlusOneDay);
+        
+        
         
         DBMSBoundaryAzienda db = new DBMSBoundaryAzienda();
         db.inserisciConsegna(farmacia.id, dataConsegna);

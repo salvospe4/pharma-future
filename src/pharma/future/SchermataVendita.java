@@ -311,7 +311,22 @@ public class SchermataVendita extends javax.swing.JFrame {
             }else{
                 vc.vendi(id_farmaco, qty);
                 JOptionPane.showMessageDialog(this, "Farmaco venduto");
+                int scorte = vc.controllaScorta(NomeFarmacoText.getText());
+                System.out.println(scorte);
+                int sogliaMinima = 20;
+                if(scorte < sogliaMinima){
+                    int input = JOptionPane.showConfirmDialog(this, "Le scorte del farmaco appena venduto sono in esaurimento. Ti suggerisco di effettuare un nuovo ordine. Vuoi farlo adesso?");
+                    System.out.println(input);
+                    if(input == 0){ //SI
+                        new SchermataOrdineSingolo(farmacia).setVisible(true);
+                        this.dispose();
+                    }
+                }
+                IDText.setText("");
+                NomeFarmacoText.setText("");
+                PrincipioAttivoText.setText("");
                 QtyText.setText("");
+                this.riempiTabella();
             }
         }
         

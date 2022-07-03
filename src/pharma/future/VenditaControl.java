@@ -30,4 +30,12 @@ public class VenditaControl {
     
     }
     
+    public int controllaScorta(String nome_farmaco){
+        
+        DBMSBoundaryFarmacia db = new DBMSBoundaryFarmacia(this.farmacia);
+        int scorte = db.scorteFarmaco(nome_farmaco);
+        
+        return scorte;
+    }
+    
 }

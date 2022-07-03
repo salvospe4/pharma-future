@@ -300,7 +300,7 @@ public class RitardiProduzione extends javax.swing.JFrame {
             pc.modificaProduzione(id_farmaco, frequenza, qty);
 
             JOptionPane.showMessageDialog(this, "Produzione aggiornata");
-
+            this.riempiTabella();
             IDText.setText("");
             NomeText.setText("");
             FrequenzaText.setText("");

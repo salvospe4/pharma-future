@@ -34,12 +34,12 @@ public class SchermataPrincipaleFarmacista extends javax.swing.JFrame {
                     int hour = cal.get(Calendar.HOUR_OF_DAY);
                     int minute = cal.get(Calendar.MINUTE);
                     //int second = cal.get(Calendar.SECOND);
-                    if(hour == 20 & minute==2){
+                    if(hour == 20 & minute==0){
                         new SchermataCaricoOre20(farmacia).setVisible(true);
                         break;
                     }
                     try{
-                        Thread.sleep(50000); // dorme 50 secondi
+                        Thread.sleep(2000); // dorme 50 secondi
                     }catch(Exception e){
                         e.printStackTrace();
                     }
