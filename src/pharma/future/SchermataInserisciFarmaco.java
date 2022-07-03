@@ -322,6 +322,12 @@ public class SchermataInserisciFarmaco extends javax.swing.JFrame {
             int giorniScadenza = Integer.valueOf(GiorniScadenzaText.getText());
             new ProduzioneControl().inserisciFarmaco(nome, principioAttivo, banco, giorniScadenza, frequenza, quantita);
             JOptionPane.showMessageDialog(this, "Farmaco inserito correttamente");
+            NomeText.setText("");
+            PrincipioAttivoText.setText("");
+            FrequenzaText.setText("");
+            QtyText.setText("");
+            GiorniScadenzaText.setText("");
+            BancoCheck.setSelected(false);
         }
     }//GEN-LAST:event_InserisciBtnMouseClicked
 
